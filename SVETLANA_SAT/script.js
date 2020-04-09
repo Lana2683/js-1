@@ -50,20 +50,20 @@ console.log(strReverse(" A fun little challenge! "));
 // -TASK 5-  Return the expansion of that string
 
 function stringExpansion(str) {
-  var res = "", x = 1;
-  for (var i = 0; i < str.length; i++){
-    if (str[i] == +str[i]){ 
-      x = +str[i]
-    } else { 
-      res += str[i].repeat(x)
-    }
+  return str.replace(/[0-9]\D+/g, function(s){
+   var x =+ (s.split('')[0]),
+       res = [],
+       arr = s.split('').slice(1);
+  for(var i = 0; i < arr.length; i++){
+    res.push(Array(x+1).join(arr[i]));
   }
-  return res;
+  return res.join('');
+}).replace(/\d+/g,'');
 }
 
-console.log( stringExpansion('3D2a5d2f'));
-console.log( stringExpansion('3d332f2a'));
-console.log( stringExpansion('abcde'))
+console.log(stringExpansion('3D2a5d2f'));
+console.log(stringExpansion('3d332f2a'));
+console.log(stringExpansion('abcde'))
 
 // ############################
 
