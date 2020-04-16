@@ -2,7 +2,7 @@
 //  -TASK 1- Split and Merge
 
 function splitAndMerge(str, sp) {
-  return str.split(" ").join("").split("").join(sp);
+  return str.split(" ").map(word => word.split("").join(sp)).join(" ");
 }
 
 console.log(splitAndMerge("Hello World!",","));
@@ -50,7 +50,7 @@ console.log(strReverse(" A fun little challenge! "));
 // -TASK 5-  Return the expansion of that string
 
 function stringExpansion(str) {
-  return str.replace(/[0-9]\D+/g, function(s){
+  return str.replace(/\d\D+/g, function(s){
    var x =+ (s.split('')[0]),
        res = [],
        arr = s.split('').slice(1);
